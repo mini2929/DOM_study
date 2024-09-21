@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <style>
+        article {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+    </style>
 </head>
 <body>
-    
+    <article></article>
+    <script>
+        const box = document.querySelector('article');
+        box.style.width = '300px'
+        box.style.backgroundColor = 'pink';
+        // DOM 문자에서 색깔은 따옴표 안에 넣어야 구동함
+        box.style['background-color'] = 'purple';
+
+    </script>
 </body>
 </html>
