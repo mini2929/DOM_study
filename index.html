@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
-    <!-- DOM : Document object model
+<!-- DOM : Document object model
     HTML로 작성한 태그들을 브라우저로 해석해서 DOM이라는 객체로 변환해서 화면에 랜더링.....
-    @.@?
-    HTML요소를 제어한다 -->
+    @.@? HTML요소를 제어한다
+-->
 
 <!-- 이벤트 발생이란 사용자/시스템이 웹상에서 하는 모든 행동
     예: 클릭, 브라우져리사이즈, 스크롤, 호버 등 / 로드이벤트 등
@@ -90,14 +90,15 @@
         // rgb값으로 불러옴 -> 브라우저에 랜더링된 수치값이 불러들어옴
         console.log(boxStyle3);
 
-    // 이벤트
+// 이벤트
 
     const btns = document.querySelectorAll('li');
+    //①
         btns[0].addEventListener('click', () => {
         console.log(0);
     });
     // li 첫번째 화면출력 button1 클릭 시 콘솔에 0 출력됨
-
+    //②
         btns[0].addEventListener('click', (e) => {
         console.log(e.currentTarget);
         // 내가 클릭한 요소의 대상을 찍고 싶을 때 console.log(btns[0]) > 지정 번거로움
@@ -116,6 +117,34 @@
         console.log(e.currentTarget);
     });
     // 마우스가 떠날 때 실행
+
+// forEach로 위의 이벤트 실행구문 재작성
+
+    btns.forEach((li, idx) => {
+        btns[idx].addEventListener('click', () =>{
+        //③④
+            console.log(idx+1);
+            console.log(btns[idx]);
+            // current랑 log(btns[])랑 콘솔에는 똑같이 출력됨
+        });
+    });
+
+
+// for of 구문으로 이벤트 실행구문 재작성
+
+    for (const el of btns) {
+    // el이라는 임의 변수 생성
+    // of 다음에는 배열이 나와야함
+        el.addEventListener('click', () =>{
+        //⑤
+            console.log(el);
+        });
+    };
+    // button1번 구역을 클릭할 때 5번의 log찍힘
+// forEach 구문은 순서값을 자동으로 계산하지만
+// for of 구문은 순서값을 계산하지 않고 실행하므로 필요하다면 count를 추가해주는 작업해야함
+
+// 이벤트 실행 시 출력되는 사항들은 새로고침하면 콘솔에서 사라짐!
     </script>
 </body>
 </html>
