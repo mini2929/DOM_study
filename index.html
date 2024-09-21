@@ -21,6 +21,14 @@
         box.style.backgroundColor = 'pink';
         // DOM 문자에서 색깔은 따옴표 안에 넣어야 구동함
         box.style['background-color'] = 'purple';
+        // 현재 적용된 값을 역으로 호출
+        const boxStyle = getComputedStyle(box);
+        const boxStyle2 = getComputedStyle(box).backgroundColor;
+        const boxStyle3 = getComputedStyle(box).width;
+        console.log(boxStyle);
+        console.log(boxStyle2);
+        // rgb값으로 불러옴 -> 브라우저에 랜더링된 수치값이 불러들어옴
+        console.log(boxStyle3);
 
     </script>
 </body>
