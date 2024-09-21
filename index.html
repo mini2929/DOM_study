@@ -22,14 +22,13 @@
         <nav>box1</nav>
         <nav>box2</nav>
         <nav>box3</nav>
-    </section>
-
+    
     <ul>
         <li>button1</li>
         <li class="btn">button2</li>
         <li>button3</li>
     </ul>
-
+    </section>
 
     <article></article>
     <script>
@@ -41,6 +40,33 @@
         const nav = document.querySelectorAll('nav');
         console.log(nav); 
         // NodeList로 출력됨 [nav,nav,nav]
+
+        const li = section.querySelector('.btn');
+        console.log(li);
+        // <li class="btn"> ... </li> 출력됨
+
+        const childEl = section.children;
+        console.log(childEl);
+        // HTMLCollection(4) [nav, nav, nav, ul]
+
+        const parentEl = li.parentElement;
+        console.log(parentEl);
+        // 변수에다 넣은 이름을 써야 됨 -> btn이라고 클래스명이라 생각하고 넣었더니 변수선언이 안되었다고 오류뜸. <ul>...</ul> 출력됨
+
+        const prevEl = li.previousElementSibling;
+        console.log(prevEl);
+        // btn을 기점으로 이전 li 선택됨
+
+        const nextEl = li.nextElementSibling;
+        console.log(nextEl);
+        // btn을 기점으로 다음 li 선택됨
+
+        const parents = li.parentElement.parentElement;
+        const parents2 = li.closest('section');
+        console.log(parents);
+        console.log(parents2);
+        // ul을 거쳐 section 으로 출력됨 
+        // parentElement를 반복하여 올라가는 것 보다 직접적으로 선택 closest이 효율적
 
         const box = document.querySelector('article');
         box.style.width = '300px'
