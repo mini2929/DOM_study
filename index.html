@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <!-- DOM : Document object model
+    HTML로 작성한 태그들을 브라우저로 해석해서 DOM이라는 객체로 변환해서 화면에 랜더링.....
+    @.@?
+    HTML요소를 제어한다 -->
     <style>
         article {
             width: 200px;
@@ -14,12 +18,35 @@
     </style>
 </head>
 <body>
+    <section>
+        <nav>box1</nav>
+        <nav>box2</nav>
+        <nav>box3</nav>
+    </section>
+
+    <ul>
+        <li>button1</li>
+        <li class="btn">button2</li>
+        <li>button3</li>
+    </ul>
+
+
     <article></article>
     <script>
+
+        const section = document.querySelector('section');
+        console.log(section);
+        // section이 여러개가 있다면 첫번째만 console에 나타남;;
+
+        const nav = document.querySelectorAll('nav');
+        console.log(nav); 
+        // NodeList로 출력됨 [nav,nav,nav]
+
         const box = document.querySelector('article');
         box.style.width = '300px'
         box.style.backgroundColor = 'pink';
         // DOM 문자에서 색깔은 따옴표 안에 넣어야 구동함
+        // article이 여러개일 경우 첫번째만 적용됨
         box.style['background-color'] = 'purple';
         // 현재 적용된 값을 역으로 호출
         const boxStyle = getComputedStyle(box);
