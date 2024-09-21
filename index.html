@@ -8,6 +8,13 @@
     HTML로 작성한 태그들을 브라우저로 해석해서 DOM이라는 객체로 변환해서 화면에 랜더링.....
     @.@?
     HTML요소를 제어한다 -->
+
+<!-- 이벤트 발생이란 사용자/시스템이 웹상에서 하는 모든 행동
+    예: 클릭, 브라우져리사이즈, 스크롤, 호버 등 / 로드이벤트 등
+    < 학습할 내용 : 사용자 이벤트 >
+    사용자가 어떤 행동을 했을 때 원하는 것을 실행하는 것 배우기
+-->
+
     <style>
         article {
             width: 200px;
@@ -83,6 +90,32 @@
         // rgb값으로 불러옴 -> 브라우저에 랜더링된 수치값이 불러들어옴
         console.log(boxStyle3);
 
+    // 이벤트
+
+    const btns = document.querySelectorAll('li');
+        btns[0].addEventListener('click', () => {
+        console.log(0);
+    });
+    // li 첫번째 화면출력 button1 클릭 시 콘솔에 0 출력됨
+
+        btns[0].addEventListener('click', (e) => {
+        console.log(e.currentTarget);
+        // 내가 클릭한 요소의 대상을 찍고 싶을 때 console.log(btns[0]) > 지정 번거로움
+        //  GPT : Event listener는 특정 이벤트가 발생했을 때, 그에 반응하여 실행할 코드를 정의하는 기능입니다. 대표적으로 HTML 요소가 클릭되거나 키보드를 입력하는 등의 이벤트를 감지할 수 있습니다.
+        // 발생할 이벤트, (대상 전달 객체)
+        // currentTarget > e라는 전달되는 객체 안에 현재 이벤트가 발생하는 대상(btns)을 지칭해줌 
+    });
+
+    // 0번째 button1 클릭 시 log 2번 실행됨.
+    
+    btns[1].addEventListener('mouseenter', (e) => {
+        console.log(e.currentTarget);
+    });
+    // 마우스가 갖다 대어질 때 실행
+    btns[2].addEventListener('mouseleave', (e) => {
+        console.log(e.currentTarget);
+    });
+    // 마우스가 떠날 때 실행
     </script>
 </body>
 </html>
